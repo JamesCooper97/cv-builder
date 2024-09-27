@@ -1,7 +1,9 @@
+import Styles from './page.module.css';
+
 export default function Dashboard() {
     return(
-        <div className="Dashboard">
-            <p>Ca bische</p>
+        <div className={Styles.dashboard_container}>
+            
         </div>
     )
 }
