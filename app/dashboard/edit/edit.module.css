@@ -1,4 +1,24 @@
 .dashboard_container{
     display: flex;
     flex-direction: row;
+    height: 90vh;
+    background-color: beige;
+    overflow: hidden;
+}
+
+.edit_container{
+    background-color: beige;
+    align-items: center;
+    width: 80%;
+    resize: none;
+    overflow: hidden;
+}
+
+.page{
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px -2px 10px 2px #949494;
+    cursor: move;
 }
