@@ -26,6 +26,7 @@ export async function GET() {
 // POST request: Update the sections
 export async function POST(req: Request) {
   const updatedSections = await req.json();
+  console.log("Sections: " + JSON.stringify(updatedSections))
   await writeJSONFile(updatedSections);
   return NextResponse.json({ message: "Sections updated" }, { status: 200 });
 }

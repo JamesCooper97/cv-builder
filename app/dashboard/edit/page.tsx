@@ -4,13 +4,17 @@ import { useEffect, useState } from 'react';
 import Certifications from '../components/editor/cv_sections/Certifications';
 import Skills from '../components/editor/cv_sections/Skills';
 import Summary from '../components/editor/cv_sections/Summary/Summary';
+import Name from '../components/editor/cv_sections/Contact/Name';
 import EditPageStyles from './edit.module.css';
 import { DraggableCore } from 'react-draggable';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { Poppins } from 'next/font/google';
+
 
 export default function EditPage() {
   const [sections, setSections] = useState({
-    summary: '',
+    name: 'Enter Name',
+    summary: 'Enter Summary Here',
     skills: [] as string[],
     certifications: [] as { id: number; name: string; date: string }[],
   });
@@ -38,20 +42,32 @@ export default function EditPage() {
   console.log(sections.summary);
 
   return (
-    <TransformWrapper
+    <TransformWrapper 
+      panning={{excluded: ["textarea", "input", "h1", "h2", "h3", "p"]}}
       initialScale={0.9}
       minScale={0.5}
       initialPositionX={200}
       initialPositionY={100}
+      limitToBounds={false}
+      maxPositionX={5}
+      doubleClick={{disabled: true}}
     >
       <TransformComponent
         wrapperStyle={{
           width: "100%",
           height: "100%",
         }}>
-        <div className='width=100%'>
-          <DraggableCore>
+         <div className='width=100%'>
+          {/* <DraggableCore 
+            enableUserSelectHack={false}
+            > */}
             <div className={EditPageStyles.page}>
+              <Name 
+                name={sections.name}
+                onUpdate={(updatedName) =>
+                  setSections({ ...sections, name: updatedName})
+                }
+              />
               <Summary
                 summary={sections.summary}
                 onUpdate={(updatedSummary) =>
@@ -71,7 +87,7 @@ export default function EditPage() {
               <button onClick={saveSections}>Save All</button>
             </div>
             
-          </DraggableCore>
+          {/* </DraggableCore> */}
         </div>
       </TransformComponent>
     </TransformWrapper>

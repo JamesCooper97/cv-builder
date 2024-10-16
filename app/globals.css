@@ -40,3 +40,23 @@ a {
     color-scheme: dark;
   }
 }
+
+textarea {
+  background-color: transparent;
+  border-color: transparent;
+  overflow: auto;
+  resize: vertical;
+  width: 100%;
+  border-radius: 5px;
+}
+
+textarea:hover {
+  border-color: green;
+  border-style: dashed;
+}
+
+textarea:focus{
+  outline: none !important;
+  border-color: red;
+  border-style: dashed;
+}

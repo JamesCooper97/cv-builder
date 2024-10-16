@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import summaryStyles from './summary.module.css'
 
 interface SummaryProps {
@@ -7,9 +7,7 @@ interface SummaryProps {
 }
 
 const Summary: React.FC<SummaryProps> = ({ summary, onUpdate }) => {
-
   const [currentSummary, setCurrentSummary] = useState(summary);
-  const [isEditing, setIsEditing] = useState(false);
   
   useEffect(() => {
     setCurrentSummary(summary);
@@ -24,17 +22,10 @@ const Summary: React.FC<SummaryProps> = ({ summary, onUpdate }) => {
   return (
     <div>
       <h2>Summary</h2>
-      {isEditing ? 
-      <div>
-        <textarea className="text-input" 
-          value={currentSummary} 
-          onChange={(e) => handleChange(e.target.value)} 
-          onDoubleClick={() => setCurrentSummary('')} />
-          <button onClick={() => 
-          setIsEditing(false)}>
-            Save
-          </button>
-      </div> : <p onClick={() => setIsEditing(true)}>{currentSummary}</p>}
+      <textarea className={summaryStyles.text_input} 
+        value={currentSummary} 
+        onChange={(e) => handleChange(e.target.value)}
+      />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 .sidebar_container{
     width: 20%;
     height:1000px;
-    background-color: blue;
+    background-color: rgb(238, 238, 245);
+    z-index: 50;
 }

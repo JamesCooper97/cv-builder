@@ -1,8 +1,6 @@
-#textarea {
-    width: 100%;
-}
-
 .summary_container:focus {
     outline: none !important;
     border-color:rgb(41, 192, 192);
 }
+
+
